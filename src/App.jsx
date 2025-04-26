@@ -2,11 +2,11 @@ import { useState } from "react";
 import { BarChart, Bar, XAxis, YAxis, Tooltip } from "recharts";
 
 function App() {
-  const [query, setQuery] = useState("Type your Query"); // 여기에 테이블명 맞춰줘
+  const [query, setQuery] = useState("SELECT * FROM hitters LIMIT 10;");
   const [results, setResults] = useState([]);
 
   const runQuery = async () => {
-    const res = await fetch("http://localhost:3001/query", {
+    const res = await fetch("https://cse560-team3-backend.onrender.com/query", {
       method: "POST",
       headers: { "Content-Type": "application/json" },
       body: JSON.stringify({ query }),
